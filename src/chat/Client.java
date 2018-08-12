@@ -35,6 +35,7 @@ public class Client {
 	 * 启动客户端的方法
 	 */
 	public void start() {
+		Scanner scanner=null;
 		try {
 			/*
 			 * socket的方法
@@ -45,7 +46,7 @@ public class Client {
 			//转换字符流，指定字符集为utf-8,使用带自动行刷新的pritwriter。
 			OutputStreamWriter osw=new OutputStreamWriter(out,"utf-8");
 			PrintWriter pw = new PrintWriter(osw,true);
-			Scanner scanner= new Scanner(System.in);
+			scanner= new Scanner(System.in);
 			//要求用户先输入昵称
 			String nickname = null;
 			while(true) {
@@ -75,7 +76,10 @@ public class Client {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			scanner.close();
 		}
+		
 		
 	}
 	
